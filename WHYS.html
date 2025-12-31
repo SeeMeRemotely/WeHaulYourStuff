@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>We Haul Your Stuff — Hotshot & Hauling</title>
+  <meta name="description" content="Fast, reliable hotshot and hauling. Call or text 918-223-4285. Serving the region with same-day and next-day options." />
+  <meta name="theme-color" content="#111111" />
+
+  <style>
+    :root{
+      --bg:#0b0c0f;
+      --card:#12141a;
+      --muted:#9aa3b2;
+      --text:#f2f4f8;
+      --brand:#b0181a; /* deep red */
+      --brand2:#e11d2e; /* brighter red */
+      --ring: rgba(225,29,46,.35);
+      --border: rgba(255,255,255,.10);
+      --shadow: 0 20px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 980px;
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(225,29,46,.22), transparent 55%),
+        radial-gradient(900px 500px at 90% 0%, rgba(176,24,26,.18), transparent 55%),
+        linear-gradient(180deg, #07080b, var(--bg));
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ max-width:var(--max); margin:0 auto; padding: 22px 16px 48px; }
+
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding: 12px 0 4px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius:999px;
+      background: rgba(255,255,255,.03);
+      backdrop-filter: blur(10px);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:99px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34,197,94,.12);
+      flex:0 0 auto;
+    }
+    .badge span{ font-size:13px; color: var(--muted); }
+
+    .navlinks{
+      display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;
+    }
+    .navlinks a{
+      font-size:13px;
+      padding:10px 12px;
+      border:1px solid transparent;
+      border-radius:999px;
+      color: var(--muted);
+    }
+    .navlinks a:hover{ border-color: var(--border); color: var(--text); background: rgba(255,255,255,.03); }
+
+    .hero{
+      margin-top: 14px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 900px){
+      .hero{ grid-template-columns: 1fr; }
+      .navlinks{ display:none; }
+    }
+
+    .card{
+      border:1px solid var(--border);
+      background: rgba(18,20,26,.72);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(700px 220px at 20% 0%, rgba(225,29,46,.28), transparent 55%);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    .hero-main{ padding: 20px 18px 18px; }
+    .logo{
+      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
+      position:relative;
+    }
+    .logo img{
+      width: 260px;
+      max-width: 100%;
+      height:auto;
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .headline{
+      margin: 14px 0 0;
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      position:relative;
+    }
+    .sub{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.55;
+      max-width: 62ch;
+      position:relative;
+    }
+
+    .cta-row{
+      margin-top: 16px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      position:relative;
+    }
+
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 14px 14px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight: 650;
+      letter-spacing: .2px;
+      min-height: 48px;
+      flex: 1 1 170px;
+    }
+    .btn:hover{ border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
+    .btn.primary{
+      background: linear-gradient(180deg, var(--brand2), var(--brand));
+      border-color: rgba(255,255,255,.12);
+      box-shadow: 0 14px 30px rgba(225,29,46,.22);
+    }
+    .btn.primary:hover{ filter: brightness(1.05); }
+    .btn small{ font-weight: 600; opacity:.9; }
+
+    .pill-row{
+      margin-top: 14px;
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      position:relative;
+    }
+    .pill{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      color: var(--muted);
+      background: rgba(255,255,255,.03);
+      font-size: 13px;
+    }
+
+    .hero-side{ padding: 18px; display:flex; flex-direction:column; gap: 12px; }
+    .side-title{
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+      position:relative;
+    }
+    .big{
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: .02em;
+      margin: 4px 0 0;
+      position:relative;
+    }
+    .muted{ color: var(--muted); font-size: 13px; line-height:1.4; position:relative; }
+
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    @media (max-width: 900px){ .grid{ grid-template-columns: 1fr; } }
+
+    .mini{
+      padding: 14px 14px 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      position:relative;
+    }
+    .mini h3{
+      margin: 2px 0 8px;
+      font-size: 15px;
+      letter-spacing: .2px;
+    }
+    .mini p{
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .footer{
+      margin-top: 18px;
+      padding: 14px 12px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align:center;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    /* Simple icons */
+    .ico{
+      width: 18px; height: 18px;
+      display:inline-block;
+      vertical-align: -3px;
+      opacity:.95;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="badge" aria-label="Availability">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Available for hotshot & urgent loads</span>
+      </div>
+
+      <div class="navlinks" aria-label="Quick links">
+        <a href="#services">Services</a>
+        <a href="#how">How it works</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+    <section class="hero" id="top">
+      <div class="card hero-main">
+        <div class="logo">
+          <!-- Put your logo image in the same folder as this HTML -->
+          <img src="2025-12-13_091914.jpg" alt="We Haul Your Stuff logo" />
+        </div>
+
+        <h1 class="headline">Hotshot hauling that’s fast, simple, and reliable.</h1>
+        <p class="sub">
+          Need something moved <strong>today</strong> or <strong>tomorrow</strong>? Call or text and we’ll get you a quick quote.
+          Clear communication, on-time pickup, safe delivery.
+        </p>
+
+        <div class="cta-row" id="contact">
+          <a class="btn primary" href="tel:19182234285" aria-label="Call 918-223-4285">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M6.6 10.8c1.2 2.5 3.3 4.6 5.8 5.8l1.9-1.9c.3-.3.8-.4 1.2-.2 1 .4 2.1.6 3.3.6.7 0 1.2.5 1.2 1.2V20c0 .7-.5 1.2-1.2 1.2C10.6 21.2 2.8 13.4 2.8 3.8c0-.7.5-1.2 1.2-1.2H6.4c.7 0 1.2.5 1.2 1.2 0 1.1.2 2.3.6 3.3.1.4.1.9-.2 1.2l-1.4 1.5Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Call: 918-223-4285
+          </a>
+
+          <a class="btn" href="sms:19182234285?&body=Hi!%20I%20need%20a%20hotshot%20quote.%0A%0APickup%20city%2Fstate%3A%0ADelivery%20city%2Fstate%3A%0ALoad%20details%3A%0APickup%20time%20window%3A" aria-label="Text for a quote">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M20 15c0 1.1-.9 2-2 2H8l-4 4V5c0-1.1.9-2 2-2h12c1.1 0 2 .9 2 2v10Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 9h8M8 12h6" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            Text for a quote
+          </a>
+
+          <a class="btn" href="https://WeHaulYourStuff.com" target="_blank" rel="noopener" aria-label="Visit WeHaulYourStuff.com">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M12 21s7-4.4 7-11a7 7 0 1 0-14 0c0 6.6 7 11 7 11Z" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9.5 10.5h5M12 8v5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+            WeHaulYourStuff.com
+          </a>
+        </div>
+
+        <div class="pill-row">
+          <span class="pill">Hotshot</span>
+          <span class="pill">Small freight</span>
+          <span class="pill">Parts runs</span>
+          <span class="pill">Same-day pickup</span>
+          <span class="pill">Clear updates</span>
+        </div>
+      </div>
+
+      <aside class="card hero-side" aria-label="Quick details">
+        <p class="side-title">Quick info</p>
+        <div>
+          <div class="big">Fast response.</div>
+          <div class="muted">Call/text anytime — if we miss you, we call back quickly.</div>
+        </div>
+
+        <div class="mini" style="margin-top:8px">
+          <h3 id="services">What we haul</h3>
+          <p>
+            Urgent freight, equipment/parts, pallets, jobsite deliveries, last-minute runs.
+          </p>
+        </div>
+
+        <div class="mini">
+          <h3>What we need from you</h3>
+          <p>
+            Pickup + dropoff city/state, load size/weight, and preferred time window.
+          </p>
+        </div>
+      </aside>
+    </section>
+
+    <section class="grid" id="how" aria-label="How it works">
+      <div class="mini">
+        <h3>1) Text details</h3>
+        <p>Send pickup/dropoff, load info, and timeline. We’ll confirm availability.</p>
+      </div>
+      <div class="mini">
+        <h3>2) Get a quick quote</h3>
+        <p>Transparent pricing. No runaround. We keep it simple.</p>
+      </div>
+      <div class="mini">
+        <h3>3) Delivered with updates</h3>
+        <p>We communicate clearly and keep you in the loop until it’s dropped.</p>
+      </div>
+    </section>
+
+    <div class="footer">
+      © <span id="year"></span> WeHaulYourStuff.com • Hotshot & hauling • Call/Text: 918-223-4285
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
